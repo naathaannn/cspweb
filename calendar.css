@@ -292,3 +292,6 @@ footer {
       min-height: 60px;
   }
 }
+::-webkit-scrollbar {
+    display: none;
+}
