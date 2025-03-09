@@ -1,0 +1,337 @@
+:root {
+  background: rgb(1,0,11);
+  background: linear-gradient(90deg, rgba(1,0,11,1) 0%, rgba(56,9,121,1) 100%);
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  color: #fff;
+  animation: fadeIn 0.5s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  top: 0;
+  left: 0;
+}
+
+.cursor-trail {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.cursor-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  z-index: 1; 
+}
+
+
+header {
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+h1 {
+  font-size: 3.5em;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+}
+
+
+.back-arrow-container {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.back-arrow {
+  font-family: "Raleway", sans-serif;
+  font-size: 1em;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  text-align: center;
+  line-height: 1;
+}
+
+.back-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  position: relative;
+  overflow-y: auto;
+}
+
+
+.calendar-container {
+  width: 80%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding-bottom: 10px;
+}
+
+.weekday {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(80px, auto);
+  gap: 5px;
+}
+
+.calendar-day {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 5px;
+  min-height: 80px;
+  transition: all 0.2s ease;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.calendar-day:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+
+.date-number {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.event-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #ff5e5e;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.events-list {
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.event-item {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  padding: 3px 5px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+
+.notes-container {
+  width: 80%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.notes-container h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+}
+
+.notes-content {
+  min-height: 100px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  padding: 15px;
+  line-height: 1.6;
+}
+
+.notes-content ul {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+.notes-content li {
+  margin-bottom: 0.3em;
+}
+
+.notes-content h3 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+footer {
+  padding: 15px;
+  position: relative;
+  text-align: right;
+}
+
+.footer-text {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 0.6em;
+  opacity: 0.4;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2.2em;
+  }
+  
+  .back-arrow-container {
+      left: 20px;
+  }
+  
+  .back-arrow {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5em;
+  }
+  
+  .calendar-container, .notes-container {
+      width: 95%;
+  }
+  
+  .calendar-day {
+      min-height: 60px;
+  }
+}
+
+.content-container {
+  width: 80%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+}
+
+.content-section h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+}
+
+.content-text {
+  min-height: 100px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  padding: 15px;
+  line-height: 1.6;
+}
+
+.content-text ul {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  padding-left: 25px;
+}
+
+.content-text li {
+  margin-bottom: 0.5em;
+  list-style-type: disc;
+}
+
+.content-text p {
+  margin-bottom: 1em;
+}
+p {
+  text-indent: 30px;
+}
